@@ -1,0 +1,28 @@
+model:
+  name: "Qwen/Qwen2.5-0.5B-Instruct"
+  dtype: "auto"
+  trust_remote_code: false
+  gpu_memory_utilization: 0.90
+
+backend:
+  name: "vllm"
+  host: "127.0.0.1"
+  port: 8000
+
+load:
+  concurrency_levels: [1, 2, 4, 8]
+  num_requests: 20
+  prompt_source: "random"
+  input_len: 128
+  output_len: 64
+
+gpu_monitor:
+  enabled: true
+  sample_interval_ms: 100
+  device_index: 0
+
+report:
+  output_dir: "results"
+  formats: ["json", "html"]
+
+warmup_requests: 2

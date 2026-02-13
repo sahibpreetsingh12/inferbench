@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inferbench"
+version = "0.1.0"
+description = "LLM inference benchmarking CLI — cross-backend GPU profiling"
+requires-python = ">=3.12"
+dependencies = [
+      "typer>=0.23.0",
+      "rich",
+      "pyyaml",
+      "pydantic>=2.0",
+      "aiohttp",
+      "openai>=2.0",
+      "pandas",
+      "jinja2",
+      "plotly",
+      "pynvml",
+      "psutil",
+      "torch",
+      "transformers",
+]
+
+[project.scripts]
+inferbench = "llm_bench.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["llm_bench*"]
+
